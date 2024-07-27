@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <title>REACT</title>
+</head>
+<body>
+  <script type="text/babel">
+    async function getGif() {
+      const token = 'xULPmbpPiwtiSGFJaDi5xDBpkuHaXJBT';
+      const response = await fetch(`http://api.giphy.com/v1/gifs/random?api_key=${token}`);
+      return response.json();
+    }
+
+    async function main() {
+      const response = await getGif();
+
+      const { url } = response.data.images.original;
+      const img = document.createElement('img');
+
+      img.src = url;
+
+      document.body.append(img);
+    }
+
+    main();
+
+  </script>
+</body>
+</html>

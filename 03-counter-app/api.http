@@ -1,0 +1,37 @@
+# AEP Energy Developer Portal
+
+# Variables
+
+@environment = fnt
+@hostname = api-{{environment}}.aepenergy.net
+@port = 8080
+@host = {{hostname}}:{{port}}
+@basePath = /api
+@contentType = application/json
+
+### Usage API
+# @usage = 18990364
+
+@usage = 24144702
+GET https://{{hostname}}/api/nextstar2-billing/usages/{{usage}} HTTP/1.1
+
+### Agreement API UI
+
+@agreement = 2116697
+GET https://{{hostname}}/api/billing/ns2poc/v1/agreements/{{agreement}} HTTP/1.1
+GET https://api-dev.aepenergy.net/api/billing/ns2poc/v1/ui/agreements/{{agreement}} HTTP/1.1
+GET https://api-dev.aepenergy.net/api/billing/ns2poc/v1/agreements/2116697 HTTP/1.1
+
+### Billing Accounts API
+
+@billingAccount = 412133
+
+GET https://{{hostname}}/api/billing/ns2poc/v1/billingaccounts/{{billingAccount}} HTTP/1.1
+
+
+### Energy Charges API
+
+@energyCharges = 
+
+GET https://{{hostname}}/api/nextstart2-billing/product/v1/productlineitems?productCode={{energyCharges}} HTTP/1.1
+
